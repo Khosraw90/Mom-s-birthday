@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Tillykke med fødselsdagen, mor 💐</title>
+
+<meta name="description" content="En lille hilsen til verdens bedste mor 💕" />
+<meta name="theme-color" content="#f2a6c3" />
+
+<style>
+  body{
+    margin:0;
+    min-height:100vh;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background: linear-gradient(135deg, #fff1f6, #ffffff);
+    display:grid;
+    place-items:center;
+    padding: 20px;
+    overflow:hidden;
+  }
+
+  .card{
+    background:white;
+    border-radius:24px;
+    max-width:720px;
+    width:100%;
+    padding:28px;
+    box-shadow:0 20px 50px rgba(0,0,0,.12);
+    text-align:center;
+    z-index:2;
+  }
+
+  h1{
+    margin-top:0;
+    font-size:clamp(26px, 5vw, 36px);
+  }
+
+  p{
+    color:#444;
+    line-height:1.6;
+    font-size:17px;
+  }
+
+  .btn{
+    margin-top:22px;
+    padding:16px 28px;
+    font-size:18px;
+    border-radius:999px;
+    border:none;
+    background:#f06292;
+    color:white;
+    cursor:pointer;
+    box-shadow:0 12px 26px rgba(240,98,146,.35);
+  }
+
+  .letter{
+    margin-top:24px;
+    background:#fff7fb;
+    border-radius:18px;
+    padding:24px;
+    display:none;
+    text-align:left;
+    font-size:17px;
+    line-height:1.7;
+  }
+
+  .flower{
+    position:fixed;
+    top:-10vh;
+    pointer-events:none;
+    opacity:.8;
+    animation: fall linear forwards;
+  }
+
+  @keyframes fall{
+    to{
+      transform: translateY(120vh) rotate(20deg);
+      opacity:0;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Kære mor 💐</h1>
+  <p>
+    I dag er en helt særlig dag,<br>
+    og jeg har skrevet noget til dig…
+  </p>
+
+  <button class="btn" onclick="openLetter()">Vil du læse brevet? 💌</button>
+
+  <div class="letter" id="letter">
+    <p>
+      Kære mor<br><br>
+
+      Tillykke med fødselsdagen min kære mor❤️  
+      Tak for alt det, du er - den bedste mor, mormor og svigermor
+      og alt det, du gør – for din omsorg, din tålmodighed og din kærlighed.
+      <br><br>
+      Du betyder mere for os, end ord kan beskrive,  
+      og jeg håber, at du i dag føler bare en lille del af den kærlighed,
+      du altid giver videre.
+      <br><br>
+      Jeg elsker dig 💖
+      <br><br>
+      Kærlig hilsen<br>
+      <b>Din søn</b>
+    </p>
+  </div>
+</div>
+
+<script>
+function openLetter(){
+  const letter = document.getElementById("letter");
+  letter.style.display = "block";
+
+  // blide blomster
+  for(let i=0;i<25;i++){
+    setTimeout(()=>spawnFlower(), i*120);
+  }
+}
+
+function spawnFlower(){
+  const flowers = ["🌸","🌷","💐","🌼"];
+  const f = document.createElement("div");
+  f.className = "flower";
+  f.textContent = flowers[Math.floor(Math.random()*flowers.length)];
+  f.style.left = Math.random()*100 + "vw";
+  f.style.fontSize = (18 + Math.random()*22) + "px";
+  const dur = 4000 + Math.random()*4000;
+  f.style.animationDuration = dur + "ms";
+  document.body.appendChild(f);
+  setTimeout(()=>f.remove(), dur);
+}
+</script>
+
+</body>
+</html>
